@@ -9,16 +9,20 @@
 #include "iSound.h"
 
 //all variables
+int scene = 0;
+bool init = false;
+int loader_count = 0;
+int ratio = 0.8;
 
 //all images
-Image cover
+Image cover;
 
 void loadImages()
 {
     switch(loader_count)
     {
         case 0: iLoadImage(&cover, "assets/images/cover.png");iScaleImage(&cover, ratio); loader_count++; break;
-        default: load_successful = true;
+        default: break;
     }
 }
 
@@ -92,6 +96,16 @@ void iSpecialKeyboard(unsigned char key)
     case 4:
         break;
     }
+}
+
+void iMouseDrag(int mx, int my)
+{
+    return;
+}
+
+void iMouseWheel(int dir, int mx, int my)
+{
+    return;
 }
 
 int main(int argc, char *argv[])
