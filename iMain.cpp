@@ -1,0 +1,105 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+#include <string.h>
+#include <windows.h>
+#include <time.h>
+#include "iGraphics.h"
+#include "iSound.h"
+
+//all variables
+
+//all images
+Image cover
+
+void loadImages()
+{
+    switch(loader_count)
+    {
+        case 0: iLoadImage(&cover, "assets/images/cover.png");iScaleImage(&cover, ratio); loader_count++; break;
+        default: load_successful = true;
+    }
+}
+
+void sound_handle(int idx)
+{
+    return;
+}
+
+void saveGame(void)
+{
+    return;
+}
+
+
+
+void newGameInit(void)
+{
+    return;
+}
+
+
+void iDraw()
+{
+    iClear();
+    //Full screen
+    if(init == false) init = true, iToggleFullscreen();
+
+    switch(scene)
+    {
+    case 0:
+        break;
+    }
+}
+
+
+
+void iMouseMove(int mx, int my)
+{
+    switch(scene)
+    {
+    case 1:
+        break;
+    }
+}
+
+void iMouse(int button, int state, int mx, int my)
+{
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+    {
+        switch(scene)
+        {
+        case 1:
+            break;
+        }
+    }
+}
+
+void iKeyboard(unsigned char key)
+{
+    switch(scene)
+    {
+    case 0:
+        break;
+    }
+}
+
+void iSpecialKeyboard(unsigned char key)
+{
+    switch(scene)
+    {
+    case 4:
+        break;
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    glutInit(&argc, argv);
+    iInitializeSound();
+    //Starting the Game
+    //Load Save Game
+    iInitialize(1920, 1080, "Escape from BUET");
+    return 0;
+}
