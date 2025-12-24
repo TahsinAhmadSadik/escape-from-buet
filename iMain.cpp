@@ -8,11 +8,16 @@
 #include "iGraphics.h"
 #include "iSound.h"
 
+//scenes
+#include "scenes/scene0.h"
+
 //all variables
 int scene = 0;
 bool init = false;
 int loader_count = 0;
-int ratio = 0.8;
+
+int W, H;
+double ratio;
 
 //all images
 Image cover;
@@ -53,6 +58,7 @@ void iDraw()
     switch(scene)
     {
     case 0:
+        scene0_render(ratio);
         break;
     }
 }
@@ -85,8 +91,12 @@ void iKeyboard(unsigned char key)
     switch(scene)
     {
     case 0:
+        keyboard0(key);
         break;
     }
+
+    //press "q" to quit the game (temporary, dev use)
+    if(key == 'q') exit(0);
 }
 
 void iSpecialKeyboard(unsigned char key)
@@ -114,6 +124,9 @@ int main(int argc, char *argv[])
     iInitializeSound();
     //Starting the Game
     //Load Save Game
-    iInitialize(1920, 1080, "Escape from BUET");
+    W = glutGet(GLUT_SCREEN_WIDTH);
+    H = glutGet(GLUT_SCREEN_HEIGHT);
+    ratio = 1920/W;
+    iInitialize(W, H, "Escape from BUET");
     return 0;
 }
